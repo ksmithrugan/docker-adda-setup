@@ -14,6 +14,15 @@ services:
         networks:
             - front-tier
 
+    redis:
+        image: redis
+        container_name: redis 
+        command: redis-server --requirepass 2410
+        ports:
+            - "6380:6379"
+        networks:
+            - front-tier
 
 networks:
-  front-tier:            
+  front-tier:
+
