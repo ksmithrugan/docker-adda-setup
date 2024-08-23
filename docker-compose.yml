@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+    mysql:
+        image: mysql:8.0
+        container_name: mysql
+        ports:
+            - "3307:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: 2410
+            MYSQL_ROOT_HOST: '%'
+        volumes: 
+            - ./dumps/alldatabases.sql:/docker-entrypoint-initdb.d/datadump.sql
+        networks:
+            - front-tier
+
+
+networks:
+  front-tier:            
